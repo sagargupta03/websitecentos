@@ -1,2 +1,2 @@
-FROM sagargupta03/webapp
+FROM sagargupta03/apache
 ADD . /var/www/html
