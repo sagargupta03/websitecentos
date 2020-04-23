@@ -1,39 +1,36 @@
-// Declarative //
-pipeline
-{
-	agent any
-	stages
-	{
-		stage('Build') 
-		{
-		steps {
-			echo 'Building..'			
-		      }
-		}
-		stage('Test')
-		{
-		steps {
-		echo 'Testing..'
-		      }
-		}
-		stage('Deploy')
-		{
-		steps {
-		echo 'Deploying....'
-		      }
-		}
-	}
-}
+
 // Script //
 node 
 {
-	stage('Build') {
-	echo 'Building....'
+  def app
+	
+        stage('Clone Repository') {
+
+	echo 'Cloning the repository to our workbook....'
+        checkout scm
         }
-	stage('Test') {
-	echo 'Building....'
+
+	stage('Build Image') {
+	echo 'This builds the actual image....'
+	app = docker.build("sagargupta03/websiteapp")
 	}
-	stage('Deploy') {
-	echo 'Deploying....'
+
+        stage('Test Image') {
+        app.inside{
+        echo 'Test passed....'
+                  }
+	}
+
+        stage('Push Image') {
+        echo 'Pushing image to Docker Hub....'
+	echo 'SG-docker-hub is name of Docker credential...'
+
+        docker.withRegistry('https://registry.hub.docker.com', 'SG-docker-hub')
+	 {
+        app.push("${env.BUILD_NUMBER}")
+        app.push("latest")
+	 }	
+	/*echo ${env.BUILD_NUMBER}*/
+
 	}
 }
