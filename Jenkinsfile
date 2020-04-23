@@ -28,8 +28,8 @@ node
 
         docker.withRegistry('https://registry.hub.docker.com', 'SG-docker-hub')
 	 {
-  /*      app.push("${env.BUILD_NUMBER}")
-        app.push("latest")*/
+        app.push("${env.BUILD_NUMBER}")
+        app.push("latest")
 	 }	
 	/*echo ${env.BUILD_NUMBER}*/
 
