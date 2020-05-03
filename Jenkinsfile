@@ -3,7 +3,7 @@
 // Script //
 node 
 {
-  agent any  
+  agent {staging}  
   def app
 	
         stage('Clone Repository') {
