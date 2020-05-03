@@ -1,11 +1,9 @@
-
-
 // Script //
  
 node
 {
   agent { label 'staging'}
-  // possible options agent any, none , label	
+  // possible options agent any, none , label , my slave name is staging	
   def app
 	
         stage('Clone Repository') {
