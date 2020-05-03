@@ -4,7 +4,7 @@
  
 node
 {
-  agent any  
+  agent {label 'staging'}
   def app
 	
         stage('Clone Repository') {
