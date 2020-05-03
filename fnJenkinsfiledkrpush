@@ -3,7 +3,6 @@
 // Script //
 node 
 {
-  agent any  
   def app
 	
         stage('Clone Repository') {
@@ -14,7 +13,7 @@ node
 
 	stage('Build Image') {
 	echo 'This builds the actual image....'
-	app = docker.build("sagargupta03/website4maythird")
+	app = docker.build("sagargupta03/website4maysecond")
 	}
 
         stage('Test Image') {
