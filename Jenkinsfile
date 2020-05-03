@@ -13,7 +13,7 @@ node
 
 	stage('Build Image') {
 	echo 'This builds the actual image....'
-	app = docker.build("sagargupta03/website4may")
+	app = docker.build("sagargupta03/website4maysecond")
 	}
 
         stage('Test Image') {
