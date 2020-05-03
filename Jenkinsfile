@@ -1,7 +1,8 @@
 
 
 // Script //
-node 
+pipeline 
+// node commented and pipeline added
 {
   agent any  
   def app
